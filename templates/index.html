@@ -271,6 +271,55 @@ button:hover {
     margin-top: -53px;
   }
 }
+  
+/* Reduce the height of the Vigilance Awareness header band */
+.header {
+  padding: 12px 20px 10px;
+}
+
+.emblem {
+  font-size: 25px;
+  margin-bottom: 2px;
+}
+
+.header h1 {
+  font-size: clamp(25px, 3vw, 35px);
+  margin: 2px 0;
+  line-height: 1.1;
+}
+
+.header h2 {
+  font-size: clamp(15px, 2vw, 21px);
+  margin: 4px 0 6px;
+}
+
+.header p {
+  font-size: 10px;
+  margin: 0;
+  letter-spacing: 1.5px;
+}
+
+/* Keep the top area compact on mobile too */
+@media (max-width: 700px) {
+  .header {
+    padding: 16px 12px;
+  }
+
+  .header h1 {
+    font-size: 26px;
+  }
+
+  .header h2 {
+    font-size: 16px;
+  }
+
+  .header p {
+    font-size: 9px;
+    letter-spacing: 1px;
+    line-height: 1.7;
+  }
+}
+
 </style>
 </head>
 

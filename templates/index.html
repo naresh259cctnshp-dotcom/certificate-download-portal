@@ -2,626 +2,348 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#082750">
-  <title>Vigilance Awareness | Certificate Portal</title>
-
-  <style>
-    :root {
-      --navy: #082750;
-      --blue: #104783;
-      --gold: #efc96c;
-      --ink: #102e5e;
-      --muted: #526987;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--ink);
-      background:
-        radial-gradient(ellipse at 10% 45%, #d9eafa 0, transparent 35%),
-        radial-gradient(ellipse at 90% 65%, #e3edff 0, transparent 35%),
-        linear-gradient(135deg, #f6faff, #eaf2fc);
-    }
-
-    /* Header */
-    .header {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(115deg, #061c3b, #123f76 65%, #082750);
-      color: #fff;
-      padding: 28px 20px 25px;
-      text-align: center;
-      border-bottom: 4px solid var(--gold);
-    }
-
-    .header::before {
-      content: "";
-      position: absolute;
-      width: 350px;
-      height: 350px;
-      right: -100px;
-      top: -200px;
-      border: 1px solid #ffffff18;
-      border-radius: 50%;
-      box-shadow: 0 0 0 25px #ffffff08, 0 0 0 55px #ffffff06;
-      pointer-events: none;
-    }
-
-    .header-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .emblem {
-      font-size: 42px;
-      color: var(--gold);
-      line-height: 1.2;
-    }
-
-    .header h1 {
-      margin: 8px 0 5px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(25px, 3.6vw, 45px);
-      letter-spacing: 2px;
-      line-height: 1.2;
-      overflow-wrap: break-word;
-    }
-
-    .header h2 {
-      margin: 7px 0 13px;
-      color: var(--gold);
-      font-size: clamp(16px, 2.3vw, 27px);
-      letter-spacing: 1px;
-      line-height: 1.4;
-    }
-
-    .tagline {
-      font-size: 12px;
-      letter-spacing: 2px;
-      line-height: 1.8;
-      color: #e1eaf7;
-    }
-
-    .tricolor {
-      height: 5px;
-      background: linear-gradient(
-        to right,
-        #f28b36 0 33.33%,
-        #fff 33.33% 66.66%,
-        #188650 66.66% 100%
-      );
-    }
-
-    /* Main content layout */
-    .container {
-      width: min(1120px, 94%);
-      margin: 48px auto 34px;
-    }
-
-    .main-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(250px, 0.8fr);
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    /* Certificate download card */
-    .download-card {
-      min-width: 0;
-      background: rgba(255, 255, 255, 0.97);
-      border: 1px solid #dce7f5;
-      border-radius: 22px;
-      padding: 42px clamp(22px, 3vw, 40px);
-      text-align: center;
-      box-shadow: 0 18px 50px #163b6818;
-      position: relative;
-    }
-
-    .shield {
-      display: grid;
-      place-items: center;
-      width: 72px;
-      height: 72px;
-      margin: -76px auto 20px;
-      border-radius: 50%;
-      background: linear-gradient(145deg, #fff6d8, #f9e4a6);
-      border: 6px solid #f5f9ff;
-      font-size: 32px;
-      box-shadow: 0 5px 18px #173e7018;
-    }
-
-    .eyebrow {
-      color: #a17a25;
-      font-weight: bold;
-      letter-spacing: 1.7px;
-      text-transform: uppercase;
-      font-size: 11px;
-      line-height: 1.7;
-    }
-
-    .download-card h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(25px, 2.6vw, 34px);
-      line-height: 1.25;
-      margin: 10px 0;
-      color: #0c3069;
-    }
-
-    .description {
-      margin: 0 auto 25px;
-      max-width: 490px;
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 14px;
-    }
-
-    label {
-      display: block;
-      text-align: left;
-      font-size: 13px;
-      font-weight: bold;
-      margin: 0 0 9px;
-      color: #29476e;
-    }
-
-    input {
-      display: block;
-      width: 100%;
-      min-width: 0;
-      padding: 16px;
-      border: 1px solid #ccd9eb;
-      border-radius: 12px;
-      background: #fbfdff;
-      font-size: 16px;
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    input:focus {
-      border-color: #2262a5;
-      box-shadow: 0 0 0 4px #2262a51b;
-    }
-
-    button {
-      display: block;
-      width: 100%;
-      padding: 16px 12px;
-      margin-top: 16px;
-      border: none;
-      border-radius: 12px;
-      color: #fff;
-      background: linear-gradient(110deg, #0b326e, #14549a);
-      box-shadow: 0 8px 18px #0c326e2b;
-      font-size: 15px;
-      font-weight: bold;
-      line-height: 1.5;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px #0c326e38;
-    }
-
-    button:focus-visible {
-      outline: 3px solid var(--gold);
-      outline-offset: 3px;
-    }
-
-    .secure {
-      margin: 19px 0 0;
-      font-size: 13px;
-      line-height: 1.6;
-      color: #42627f;
-    }
-
-    .hint {
-      color: #72839a;
-      font-size: 12px;
-      line-height: 1.7;
-      margin: 13px 0 0;
-    }
-
-    .error {
-      margin: 0 0 18px;
-      padding: 13px 15px;
-      border-radius: 10px;
-      text-align: left;
-      color: #8d2424;
-      background: #fff0f0;
-      border: 1px solid #f2cccc;
-      font-size: 13px;
-      line-height: 1.6;
-      overflow-wrap: anywhere;
-    }
-
-    /* Quote panel */
-    .quote-card {
-      min-width: 0;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 28px;
-      border-radius: 22px;
-      background: linear-gradient(150deg, #e1edfc, #f9fbff);
-      border: 1px solid #d7e5f7;
-    }
-
-    .quote-mark {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 72px;
-      line-height: 0.8;
-      color: #8fb3df;
-    }
-
-    .quote-card h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-style: italic;
-      font-size: clamp(20px, 2vw, 25px);
-      line-height: 1.5;
-      margin: 15px 0 22px;
-      color: #10346d;
-      overflow-wrap: anywhere;
-    }
-
-    .quote-card p {
-      margin: 0;
-      font-size: 13px;
-      line-height: 1.6;
-      color: #58708e;
-    }
-
-    .quote-decoration {
-      font-size: 64px;
-      text-align: right;
-      color: #b6cbe6;
-      margin-top: 18px;
-      line-height: 1;
-    }
-
-    /* Feature cards */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 24px;
-    }
-
-    .feature {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-      padding: 18px 14px;
-      background: #ffffffed;
-      border: 1px solid #e0e9f4;
-      border-radius: 16px;
-      box-shadow: 0 8px 22px #15395c0b;
-    }
-
-    .feature-icon {
-      flex: 0 0 44px;
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: #e3f5ec;
-      color: #15714b;
-      font-size: 22px;
-    }
-
-    .feature:nth-child(2) .feature-icon {
-      background: #e0edff;
-      color: #1761b9;
-    }
-
-    .feature:nth-child(3) .feature-icon {
-      background: #fff1c7;
-      color: #966b08;
-    }
-
-    .feature:nth-child(4) .feature-icon {
-      background: #eee7ff;
-      color: #6844bd;
-    }
-
-    .feature h4 {
-      margin: 0 0 6px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 14px;
-      line-height: 1.4;
-      color: #102f62;
-    }
-
-    .feature p {
-      margin: 0;
-      color: #647891;
-      font-size: 12px;
-      line-height: 1.5;
-      overflow-wrap: anywhere;
-    }
-
-    /* Footer */
-    .footer {
-      background: #071f41;
-      color: #f3f6fb;
-      padding: 25px 20px;
-      text-align: center;
-      border-top: 3px solid #d7b35b;
-    }
-
-    .footer strong {
-      display: block;
-      color: var(--gold);
-      font-size: 14px;
-      line-height: 1.6;
-      margin-bottom: 8px;
-    }
-
-    .footer p {
-      margin: 0;
-      font-size: 12px;
-      line-height: 1.8;
-      color: #d1dced;
-    }
-
-    .footer .small {
-      margin-top: 12px;
-      color: #aabbd1;
-      font-size: 11px;
-    }
-
-    /* Small laptop / tablet */
-    @media (min-width: 651px) and (max-width: 1000px) {
-      .container {
-        width: 94%;
-        margin-top: 42px;
-      }
-
-      .main-grid {
-        grid-template-columns: minmax(0, 1fr) minmax(220px, 0.7fr);
-        gap: 16px;
-      }
-
-      .download-card {
-        padding: 40px 22px 28px;
-      }
-
-      .quote-card {
-        padding: 22px;
-      }
-
-      .features {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    /* Mobile */
-    @media (max-width: 650px) {
-      .header {
-        padding: 24px 14px 21px;
-      }
-
-      .emblem {
-        font-size: 34px;
-      }
-
-      .header h1 {
-        letter-spacing: 1px;
-      }
-
-      .header h2 {
-        letter-spacing: 0.5px;
-      }
-
-      .tagline {
-        font-size: 10px;
-        letter-spacing: 1px;
-      }
-
-      .container {
-        width: 92%;
-        margin: 38px auto 24px;
-      }
-
-      .main-grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 20px;
-      }
-
-      .download-card {
-        padding: 34px 20px 26px;
-        border-radius: 19px;
-      }
-
-      .shield {
-        width: 64px;
-        height: 64px;
-        margin-top: -65px;
-        font-size: 28px;
-      }
-
-      .download-card h3 {
-        font-size: 27px;
-      }
-
-      .description {
-        font-size: 14px;
-      }
-
-      input {
-        padding: 15px 12px;
-      }
-
-      button {
-        font-size: 14px;
-      }
-
-      .quote-card {
-        padding: 24px;
-        border-radius: 19px;
-        min-height: auto;
-      }
-
-      .quote-card h3 {
-        font-size: 22px;
-      }
-
-      .quote-decoration {
-        display: none;
-      }
-
-      .features {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 11px;
-      }
-
-      .feature {
-        padding: 16px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        transition: none !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#123c62">
+<title>Vigilance Awareness Certificate Portal</title>
+
+<style>
+* { box-sizing: border-box; }
+
+:root {
+  --navy: #123c62;
+  --green: #16875b;
+  --gold: #ffd477;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  background:
+    linear-gradient(120deg, rgba(5,25,52,.72), rgba(13,65,99,.48)),
+    url("https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=2000&q=85")
+    center/cover fixed no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 16px;
+}
+
+.page {
+  width: 100%;
+  max-width: 1050px;
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 25px;
+  overflow: hidden;
+  background: rgba(15, 47, 78, .48);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+  box-shadow: 0 25px 70px rgba(0,0,0,.32);
+}
+
+.header {
+  text-align: center;
+  padding: 27px 24px 24px;
+  background: linear-gradient(110deg, rgba(7,31,61,.62), rgba(28,84,125,.38));
+  border-bottom: 2px solid rgba(255,212,119,.8);
+}
+
+.emblem {
+  font-size: 37px;
+  color: var(--gold);
+  margin-bottom: 5px;
+}
+
+.header h1 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(27px, 4vw, 43px);
+  letter-spacing: 1.3px;
+  text-shadow: 0 3px 10px #0005;
+}
+
+.header h2 {
+  margin: 8px 0 10px;
+  color: var(--gold);
+  font-size: clamp(16px, 2.5vw, 25px);
+  letter-spacing: .5px;
+}
+
+.header p {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #edf5ff;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  padding: 32px;
+  align-items: center;
+}
+
+.details {
+  padding: 15px 12px;
+}
+
+.details h3 {
+  font-size: 25px;
+  color: #b8f1c7;
+  margin: 0 0 12px;
+}
+
+.details .line {
+  height: 3px;
+  width: 60px;
+  background: var(--gold);
+  border-radius: 10px;
+  margin-bottom: 22px;
+}
+
+.details p {
+  line-height: 1.8;
+  font-size: 15px;
+  color: #f1f6ff;
+  margin: 10px 0;
+}
+
+.message {
+  margin-top: 25px;
+  padding: 16px;
+  border-left: 3px solid var(--gold);
+  background: rgba(255,255,255,.09);
+  border-radius: 0 12px 12px 0;
+  line-height: 1.7;
+  font-size: 14px;
+  color: #f5f8ff;
+}
+
+.form-card {
+  background: rgba(255,255,255,.96);
+  color: #183b57;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(0,0,0,.17);
+}
+
+.form-icon {
+  width: 64px;
+  height: 64px;
+  margin: -58px auto 15px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fff2c9, #f5d77f);
+  border: 5px solid rgba(255,255,255,.9);
+  font-size: 28px;
+  box-shadow: 0 5px 15px #0001;
+}
+
+.form-card h3 {
+  text-align: center;
+  font-size: 27px;
+  margin: 8px 0;
+  color: #214a66;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #718294;
+  margin: 0 0 24px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 9px;
+  color: #34536b;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #cad8e3;
+  border-radius: 10px;
+  outline: none;
+  font-size: 16px;
+  background: #fbfdff;
+}
+
+input:focus {
+  border-color: #2680a6;
+  box-shadow: 0 0 0 3px #2680a61b;
+}
+
+.example {
+  text-align: center;
+  font-size: 11px;
+  color: #7e8e9d;
+  margin: 9px 0 13px;
+}
+
+button {
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  padding: 15px;
+  background: linear-gradient(100deg, #148353, #20a66c);
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 6px 16px #16875b35;
+  transition: .2s;
+}
+
+button:hover {
+  background: linear-gradient(100deg, #106c43, #188b59);
+  transform: translateY(-2px);
+}
+
+.error {
+  margin: 0 0 16px;
+  padding: 12px;
+  border-radius: 9px;
+  color: #922d2d;
+  background: #fff0f0;
+  border: 1px solid #f0cdcd;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.secure {
+  margin: 16px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: #637c8b;
+}
+
+.footer {
+  padding: 17px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,.22);
+  background: rgba(5,29,52,.45);
+  font-size: 13px;
+  color: #f1f6fc;
+}
+
+.footer strong {
+  color: var(--gold);
+}
+
+@media (max-width: 700px) {
+  body {
+    padding: 14px 10px;
+    background-attachment: scroll;
+  }
+
+  .page { border-radius: 18px; }
+
+  .header { padding: 24px 14px; }
+
+  .header p {
+    line-height: 1.8;
+    letter-spacing: 1px;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 25px 18px;
+  }
+
+  .details { padding: 0 5px; }
+
+  .details h3 { font-size: 22px; }
+
+  .form-card { padding: 26px 20px; }
+
+  .form-icon {
+    width: 58px;
+    height: 58px;
+    margin-top: -53px;
+  }
+}
+</style>
 </head>
 
 <body>
+<main class="page">
+
   <header class="header">
-    <div class="header-inner">
-      <div class="emblem" aria-hidden="true">⚖</div>
-      <h1>VIGILANCE AWARENESS</h1>
-      <h2>CERTIFICATE DOWNLOAD PORTAL</h2>
-      <div class="tagline">
-        INTEGRITY &nbsp; | &nbsp; TRANSPARENCY &nbsp; | &nbsp; ACCOUNTABILITY
-      </div>
-    </div>
+    <div class="emblem" aria-hidden="true">✦</div>
+    <h1>VIGILANCE AWARENESS</h1>
+    <h2>Certificate Download Portal</h2>
+    <p>INTEGRITY &nbsp; • &nbsp; TRANSPARENCY &nbsp; • &nbsp; ACCOUNTABILITY</p>
   </header>
 
-  <div class="tricolor" aria-hidden="true"></div>
+  <section class="content">
 
-  <main class="container">
-    <section class="main-grid">
+    <div class="details">
+      <h3>Promoting Integrity</h3>
+      <div class="line"></div>
 
-      <div class="download-card">
-        <div class="shield" aria-hidden="true">🛡️</div>
+      <p>🛡️ &nbsp; Stand against corruption</p>
+      <p>🤝 &nbsp; Encourage honesty and transparency</p>
+      <p>🇮🇳 &nbsp; Contribute to a responsible nation</p>
 
-        <div class="eyebrow">Participant Access Portal</div>
-
-        <h3>Download Your Certificate</h3>
-
-        <p class="description">
-          Thank you for participating in the Vigilance Awareness Programme.
-          Enter your registered mobile number to access your certificate.
-        </p>
-
-        {% if error %}
-          <div class="error" role="alert">{{ error }}</div>
-        {% endif %}
-
-        <form method="post" action="/">
-          <label for="mobile">Registered Mobile Number</label>
-
-          <input
-            id="mobile"
-            name="mobile"
-            type="tel"
-            inputmode="numeric"
-            autocomplete="tel"
-            placeholder="Enter 10-digit mobile number"
-            maxlength="14"
-            required
-            pattern="[0-9+\s()-]{10,14}"
-            title="Please enter your registered mobile number">
-
-          <button type="submit">
-            ↓ &nbsp; Find &amp; Download Certificate &nbsp; →
-          </button>
-        </form>
-
-        <p class="secure">🔒 &nbsp; Secure Certificate Access</p>
-
-        <p class="hint">
-          If your certificate is not found, please verify your mobile number
-          or contact the event organiser.
-        </p>
+      <div class="message">
+        “Integrity is doing the right thing, even when no one is watching.”
+        <br><br>
+        Thank you for being a part of the Vigilance Awareness Programme.
       </div>
+    </div>
 
-      <aside class="quote-card">
-        <div class="quote-mark" aria-hidden="true">“</div>
+    <div class="form-card">
+      <div class="form-icon" aria-hidden="true">🏅</div>
+      <h3>Download Certificate</h3>
+      <p class="subtitle">
+        Enter your registered mobile number to find your participation certificate.
+      </p>
 
-        <h3>
-          Integrity begins with each one of us. Together, let us build a
-          corruption-free nation.
-        </h3>
+      {% if error %}
+      <div class="error" role="alert">{{ error }}</div>
+      {% endif %}
 
-        <p>— Vigilance Awareness Programme</p>
+      <form method="post" action="/">
+        <label for="mobile">Registered Mobile Number</label>
+        <input
+          id="mobile"
+          name="mobile"
+          type="tel"
+          inputmode="numeric"
+          autocomplete="tel"
+          placeholder="Enter 10-digit mobile number"
+          maxlength="14"
+          required
+          pattern="[0-9+\s()-]{10,14}"
+          title="Enter your registered mobile number">
 
-        <div class="quote-decoration" aria-hidden="true">✦</div>
-      </aside>
+        <p class="example">Use the number registered for the programme</p>
 
-    </section>
+        <button type="submit">↓ &nbsp; Download Certificate</button>
+      </form>
 
-    <section class="features" aria-label="Portal features">
+      <p class="secure">🔒 Secure Certificate Access</p>
+    </div>
 
-      <div class="feature">
-        <div class="feature-icon" aria-hidden="true">✓</div>
-        <div>
-          <h4>Secure Access</h4>
-          <p>Access your certificate using your registered number.</p>
-        </div>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon" aria-hidden="true">⚡</div>
-        <div>
-          <h4>Quick Download</h4>
-          <p>Get your JPG certificate in a few simple steps.</p>
-        </div>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon" aria-hidden="true">▣</div>
-        <div>
-          <h4>Easy to Use</h4>
-          <p>Simple access on mobile phones and computers.</p>
-        </div>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon" aria-hidden="true">▤</div>
-        <div>
-          <h4>Certificate Portal</h4>
-          <p>Convenient access to your participation certificate.</p>
-        </div>
-      </div>
-
-    </section>
-  </main>
+  </section>
 
   <footer class="footer">
-    <strong>VIGILANCE AWARENESS PROGRAMME</strong>
-    <p>Integrity • Transparency • Accountability</p>
-    <p>Building a more responsible and ethical society</p>
-    <p class="small">Certificate Download Services</p>
+    <strong>VIGILANCE AWARENESS PROGRAMME</strong><br>
+    Integrity • Transparency • Accountability<br>
+    <span style="font-size:11px;opacity:.8">
+      Building a more ethical and responsible society
+    </span>
   </footer>
+
+</main>
 </body>
 </html>

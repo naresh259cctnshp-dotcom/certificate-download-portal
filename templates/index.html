@@ -2,413 +2,512 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#123c62">
-<title>Vigilance Awareness Certificate Portal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#123c62">
+  <title>Vigilance Awareness Certificate Portal</title>
 
-<style>
-* { box-sizing: border-box; }
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-:root {
-  --navy: #123c62;
-  --green: #16875b;
-  --gold: #ffd477;
-}
+    :root {
+      --navy: #123c62;
+      --green: #16875b;
+      --gold: #ffd477;
+      --white: #ffffff;
+    }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  padding: 18px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: white;
-  background:
-    linear-gradient(120deg, rgba(5,25,52,.78), rgba(13,65,99,.60)),
-    url("https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=2000&q=85")
-    center / cover fixed no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--white);
+      background:
+        linear-gradient(120deg, rgba(5,25,52,.80), rgba(13,65,99,.65)),
+        url("https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=2000&q=85")
+        center / cover fixed no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.page {
-  width: 100%;
-  max-width: 1080px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.35);
-  border-radius: 22px;
-  background: rgba(15,47,78,.60);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 20px 55px rgba(0,0,0,.30);
-}
+    .page {
+      width: 100%;
+      max-width: 1080px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 22px;
+      background: rgba(15,47,78,.60);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 20px 55px rgba(0,0,0,.30);
+    }
 
-.header {
-  text-align: center;
-  padding: 12px 18px 11px;
-  background: linear-gradient(110deg, rgba(7,31,61,.8), rgba(28,84,125,.55));
-  border-bottom: 2px solid var(--gold);
-}
+    /* HEADER */
+    .header {
+      text-align: center;
+      padding: 12px 18px 11px;
+      background: linear-gradient(
+        110deg,
+        rgba(7,31,61,.90),
+        rgba(28,84,125,.65)
+      );
+      border-bottom: 2px solid var(--gold);
+    }
 
-.emblem {
-  color: var(--gold);
-  font-size: 23px;
-  margin-bottom: 3px;
-}
+    .emblem {
+      color: var(--gold);
+      font-size: 23px;
+      margin-bottom: 3px;
+    }
 
-.header h1 {
-  margin: 0;
-  font-family: Georgia, serif;
-  font-size: clamp(25px, 3vw, 35px);
-  line-height: 1.15;
-  letter-spacing: 1px;
-  text-shadow: 0 3px 10px #0005;
-}
+    .header h1 {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-size: clamp(25px, 3vw, 35px);
+      line-height: 1.15;
+      letter-spacing: 1px;
+      text-shadow: 0 3px 10px #0005;
+    }
 
-.header h2 {
-  margin: 5px 0;
-  color: var(--gold);
-  font-size: clamp(15px, 2vw, 21px);
-}
+    .header h2 {
+      margin: 5px 0;
+      color: var(--gold);
+      font-size: clamp(15px, 2vw, 21px);
+    }
 
-.header p {
-  margin: 0;
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  line-height: 1.6;
-  color: #edf5ff;
-}
+    .header p {
+      margin: 0;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      line-height: 1.6;
+      color: #edf5ff;
+    }
 
-.content {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 22px;
-  padding: 25px;
-  align-items: stretch;
-}
+    /* MAIN TWO-COLUMN LAYOUT */
+    .content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 22px;
+      padding: 24px;
+      align-items: stretch;
+    }
 
-.details {
-  min-width: 0;
-  padding: 22px;
-  border: 1px solid rgba(255,255,255,.18);
-  border-radius: 18px;
-  background: rgba(8,38,75,.55);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+    /* LEFT PANEL */
+    .details {
+      min-width: 0;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 18px;
+      background: rgba(8,38,75,.55);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-.vigilance-officer {
-  display: block;
-  width: 150px;
-  height: 150px;
-  max-width: 100%;
-  object-fit: cover;
-  object-position: center top;
-  border-radius: 50%;
-  border: 3px solid var(--gold);
-  box-shadow: 0 8px 22px rgba(0,0,0,.30);
-  margin: 0 auto 18px;
-}
+    .officer-profile {
+      text-align: center;
+      width: 100%;
+      margin: 0 auto 18px;
+    }
 
-.details h3 {
-  font-size: 24px;
-  color: #b8f1c7;
-  margin: 0 0 10px;
-  text-align: center;
-}
+    .vigilance-officer {
+      display: block;
+      width: 135px;
+      height: 135px;
+      max-width: 100%;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      box-shadow: 0 8px 22px rgba(0,0,0,.30);
+      margin: 0 auto 10px;
+    }
 
-.line {
-  height: 3px;
-  width: 55px;
-  background: var(--gold);
-  border-radius: 10px;
-  margin: 0 auto 14px;
-}
+    .officer-name {
+      color: #ffffff;
+      font-size: 21px;
+      line-height: 1.3;
+      font-weight: 700;
+      margin: 7px 0 4px;
+    }
 
-.details p {
-  line-height: 1.65;
-  font-size: 14px;
-  color: #f1f6ff;
-  margin: 7px 0;
-}
+    .officer-designation {
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0;
+      letter-spacing: .3px;
+    }
 
-.message {
-  margin-top: 16px;
-  padding: 13px;
-  border-left: 3px solid var(--gold);
-  background: rgba(255,255,255,.09);
-  border-radius: 0 10px 10px 0;
-  line-height: 1.6;
-  font-size: 13px;
-  color: #f5f8ff;
-}
+    .details h3 {
+      font-size: 24px;
+      color: #b8f1c7;
+      margin: 4px 0 10px;
+      text-align: center;
+    }
 
-.form-card {
-  min-width: 0;
-  align-self: center;
-  width: 100%;
-  background: rgba(255,255,255,.97);
-  color: #183b57;
-  padding: 28px;
-  border-radius: 18px;
-  box-shadow: 0 12px 35px rgba(0,0,0,.17);
-}
+    .line {
+      height: 3px;
+      width: 55px;
+      background: var(--gold);
+      border-radius: 10px;
+      margin: 0 auto 14px;
+    }
 
-.form-icon {
-  width: 55px;
-  height: 55px;
-  margin: -52px auto 12px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #fff2c9, #f5d77f);
-  border: 4px solid white;
-  font-size: 25px;
-  box-shadow: 0 5px 15px #0001;
-}
+    .details > p {
+      line-height: 1.65;
+      font-size: 14px;
+      color: #f1f6ff;
+      margin: 7px 0;
+    }
 
-.form-card h3 {
-  text-align: center;
-  font-size: 25px;
-  margin: 8px 0;
-  color: #214a66;
-}
+    .message {
+      margin-top: 15px;
+      padding: 13px;
+      border-left: 3px solid var(--gold);
+      background: rgba(255,255,255,.09);
+      border-radius: 0 10px 10px 0;
+      line-height: 1.6;
+      font-size: 13px;
+      color: #f5f8ff;
+    }
 
-.subtitle {
-  text-align: center;
-  font-size: 13px;
-  line-height: 1.55;
-  color: #718294;
-  margin: 0 0 20px;
-}
+    /* RIGHT DOWNLOAD PANEL */
+    .form-card {
+      min-width: 0;
+      align-self: center;
+      width: 100%;
+      background: rgba(255,255,255,.97);
+      color: #183b57;
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.17);
+    }
 
-label {
-  display: block;
-  font-size: 13px;
-  font-weight: bold;
-  margin-bottom: 8px;
-  color: #34536b;
-}
+    .form-icon {
+      width: 55px;
+      height: 55px;
+      margin: -52px auto 12px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fff2c9, #f5d77f);
+      border: 4px solid white;
+      font-size: 25px;
+      box-shadow: 0 5px 15px #0001;
+    }
 
-input {
-  display: block;
-  width: 100%;
-  min-width: 0;
-  padding: 13px;
-  border: 1px solid #cad8e3;
-  border-radius: 9px;
-  outline: none;
-  font-size: 16px;
-  background: #fbfdff;
-  color: #183b57;
-}
+    .form-card h3 {
+      text-align: center;
+      font-size: 25px;
+      margin: 8px 0;
+      color: #214a66;
+    }
 
-input:focus {
-  border-color: #2680a6;
-  box-shadow: 0 0 0 3px #2680a61b;
-}
+    .subtitle {
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.55;
+      color: #718294;
+      margin: 0 0 20px;
+    }
 
-.example {
-  text-align: center;
-  font-size: 11px;
-  color: #7e8e9d;
-  margin: 9px 0 13px;
-}
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #34536b;
+    }
 
-button {
-  width: 100%;
-  border: 0;
-  border-radius: 9px;
-  padding: 14px;
-  background: linear-gradient(100deg, #148353, #20a66c);
-  color: white;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 6px 16px #16875b35;
-  transition: .2s;
-}
+    input {
+      display: block;
+      width: 100%;
+      min-width: 0;
+      padding: 13px;
+      border: 1px solid #cad8e3;
+      border-radius: 9px;
+      outline: none;
+      font-size: 16px;
+      background: #fbfdff;
+      color: #183b57;
+    }
 
-button:hover {
-  background: linear-gradient(100deg, #106c43, #188b59);
-  transform: translateY(-1px);
-}
+    input:focus {
+      border-color: #2680a6;
+      box-shadow: 0 0 0 3px #2680a61b;
+    }
 
-.error {
-  margin: 0 0 15px;
-  padding: 12px;
-  border-radius: 9px;
-  color: #922d2d;
-  background: #fff0f0;
-  border: 1px solid #f0cdcd;
-  font-size: 13px;
-  line-height: 1.5;
-}
+    .example {
+      text-align: center;
+      font-size: 11px;
+      color: #7e8e9d;
+      margin: 9px 0 13px;
+    }
 
-.secure {
-  margin: 14px 0 0;
-  text-align: center;
-  font-size: 12px;
-  color: #637c8b;
-}
+    button {
+      width: 100%;
+      border: 0;
+      border-radius: 9px;
+      padding: 14px;
+      background: linear-gradient(100deg, #148353, #20a66c);
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 6px 16px #16875b35;
+      transition: .2s;
+    }
 
-.footer {
-  padding: 12px 18px;
-  text-align: center;
-  border-top: 1px solid rgba(255,255,255,.22);
-  background: rgba(5,29,52,.55);
-  font-size: 12px;
-  line-height: 1.7;
-  color: #f1f6fc;
-}
+    button:hover {
+      background: linear-gradient(100deg, #106c43, #188b59);
+      transform: translateY(-1px);
+    }
 
-.footer strong { color: var(--gold); }
+    .error {
+      margin: 0 0 15px;
+      padding: 12px;
+      border-radius: 9px;
+      color: #922d2d;
+      background: #fff0f0;
+      border: 1px solid #f0cdcd;
+      font-size: 13px;
+      line-height: 1.5;
+    }
 
-@media (max-width: 700px) {
-  body {
-    padding: 12px;
-    align-items: flex-start;
-    background-attachment: scroll;
-  }
+    .secure {
+      margin: 14px 0 0;
+      text-align: center;
+      font-size: 12px;
+      color: #637c8b;
+    }
 
-  .page { border-radius: 17px; }
+    /* FOOTER */
+    .footer {
+      padding: 12px 18px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,.22);
+      background: rgba(5,29,52,.65);
+      font-size: 12px;
+      line-height: 1.7;
+      color: #f1f6fc;
+    }
 
-  .header { padding: 15px 10px; }
+    .footer strong {
+      color: var(--gold);
+    }
 
-  .header h1 { font-size: 25px; }
+    /* LAPTOP / SHORT SCREENS */
+    @media (min-width: 701px) and (max-height: 800px) {
+      body {
+        padding: 10px;
+      }
 
-  .header h2 { font-size: 16px; }
+      .content {
+        padding: 18px;
+        gap: 18px;
+      }
 
-  .header p {
-    font-size: 9px;
-    letter-spacing: .8px;
-  }
+      .details {
+        padding: 17px;
+      }
 
-  .content {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 28px;
-    padding: 24px 16px;
-  }
+      .vigilance-officer {
+        width: 115px;
+        height: 115px;
+        margin-bottom: 8px;
+      }
 
-  .details { padding: 20px; }
+      .officer-profile {
+        margin-bottom: 12px;
+      }
 
-  .vigilance-officer {
-    width: 135px;
-    height: 135px;
-  }
+      .officer-name {
+        font-size: 19px;
+      }
 
-  .form-card { padding: 25px 20px; }
+      .details h3 {
+        font-size: 21px;
+      }
 
-  .form-icon {
-    width: 52px;
-    height: 52px;
-    margin-top: -49px;
-  }
-}
+      .details > p {
+        margin: 5px 0;
+        font-size: 13px;
+      }
 
-@media (min-width: 701px) and (max-height: 800px) {
-  body { padding: 10px; }
+      .message {
+        margin-top: 9px;
+        padding: 9px;
+        font-size: 12px;
+      }
 
-  .content { padding: 18px; gap: 18px; }
+      .form-card {
+        padding: 23px;
+      }
 
-  .details { padding: 17px; }
+      .footer {
+        padding: 8px;
+      }
+    }
 
-  .vigilance-officer {
-    width: 125px;
-    height: 125px;
-    margin-bottom: 12px;
-  }
+    /* MOBILE */
+    @media (max-width: 700px) {
+      body {
+        padding: 12px;
+        align-items: flex-start;
+        background-attachment: scroll;
+      }
 
-  .message { margin-top: 10px; padding: 10px; }
+      .page {
+        border-radius: 17px;
+      }
 
-  .form-card { padding: 24px; }
+      .header {
+        padding: 15px 10px;
+      }
 
-  .footer { padding: 8px; }
-}
-</style>
+      .header h1 {
+        font-size: 25px;
+      }
+
+      .header h2 {
+        font-size: 16px;
+      }
+
+      .header p {
+        font-size: 9px;
+        letter-spacing: .8px;
+      }
+
+      .content {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 27px;
+        padding: 24px 16px;
+      }
+
+      .details {
+        padding: 20px;
+      }
+
+      .vigilance-officer {
+        width: 125px;
+        height: 125px;
+      }
+
+      .officer-name {
+        font-size: 19px;
+      }
+
+      .details h3 {
+        font-size: 22px;
+      }
+
+      .form-card {
+        padding: 25px 20px;
+      }
+
+      .form-icon {
+        width: 52px;
+        height: 52px;
+        margin-top: -49px;
+      }
+
+      .footer {
+        font-size: 11px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<main class="page">
+  <main class="page">
 
-  <header class="header">
-    <div class="emblem" aria-hidden="true">✦</div>
-    <h1>VIGILANCE AWARENESS</h1>
-    <h2>Certificate Download Portal</h2>
-    <p>INTEGRITY &nbsp; • &nbsp; TRANSPARENCY &nbsp; • &nbsp; ACCOUNTABILITY</p>
-  </header>
+    <header class="header">
+      <div class="emblem" aria-hidden="true">✦</div>
+      <h1>VIGILANCE AWARENESS</h1>
+      <h2>Certificate Download Portal</h2>
+      <p>INTEGRITY &nbsp; • &nbsp; TRANSPARENCY &nbsp; • &nbsp; ACCOUNTABILITY</p>
+    </header>
 
-  <section class="content">
+    <section class="content">
 
-    
-<div class="officer-profile">
-  <img src="/static/vigilance-officer.jpg"
-       alt="Ashok Tewari, IPS"
-       class="vigilance-officer">
+      <!-- LEFT PANEL: Officer profile and vigilance information -->
+      <div class="details">
 
-  <h2 class="officer-name">Ashok Tewari, IPS</h2>
-  <p class="officer-designation">DGP Vigilance</p>
-</div>
+        <div class="officer-profile">
+          <img
+            src="/static/vigilance-officer.jpg"
+            alt="Ashok Tewari, IPS"
+            class="vigilance-officer">
 
+          <h2 class="officer-name">Ashok Tewari, IPS</h2>
+          <p class="officer-designation">DGP Vigilance</p>
+        </div>
 
-      <h3>Promoting Integrity</h3>
-      <div class="line"></div>
+        <h3>Promoting Integrity</h3>
+        <div class="line"></div>
 
-      <p>🛡️ &nbsp; Stand against corruption</p>
-      <p>🤝 &nbsp; Encourage honesty and transparency</p>
-      <p>🇮🇳 &nbsp; Contribute to a responsible nation</p>
+        <p>🛡️ &nbsp; Stand against corruption</p>
+        <p>🤝 &nbsp; Encourage honesty and transparency</p>
+        <p>🇮🇳 &nbsp; Contribute to a responsible nation</p>
 
-      <div class="message">
-        “Integrity is doing the right thing, even when no one is watching.”
-        <br><br>
-        Thank you for being a part of the Vigilance Awareness Programme.
+        <div class="message">
+          “Integrity is doing the right thing, even when no one is watching.”
+          <br><br>
+          Thank you for being a part of the Vigilance Awareness Programme.
+        </div>
+
       </div>
-    </div>
 
-    <div class="form-card">
-      <div class="form-icon" aria-hidden="true">🏅</div>
-      <h3>Download Certificate</h3>
-      <p class="subtitle">
-        Enter your registered mobile number to find your participation certificate.
-      </p>
+      <!-- RIGHT PANEL: Certificate download form -->
+      <div class="form-card">
+        <div class="form-icon" aria-hidden="true">🏅</div>
 
-      {% if error %}
-      <div class="error" role="alert">{{ error }}</div>
-      {% endif %}
+        <h3>Download Certificate</h3>
+        <p class="subtitle">
+          Enter your registered mobile number to find your participation certificate.
+        </p>
 
-      <form method="post" action="/">
-        <label for="mobile">Registered Mobile Number</label>
-        <input
-          id="mobile"
-          name="mobile"
-          type="tel"
-          inputmode="numeric"
-          autocomplete="tel"
-          placeholder="Enter 10-digit mobile number"
-          maxlength="14"
-          required
-          pattern="[0-9+\s()-]{10,14}"
-          title="Enter your registered mobile number">
+        {% if error %}
+        <div class="error" role="alert">{{ error }}</div>
+        {% endif %}
 
-        <p class="example">Use the number registered for the programme</p>
+        <form method="post" action="/">
+          <label for="mobile">Registered Mobile Number</label>
+          <input
+            id="mobile"
+            name="mobile"
+            type="tel"
+            inputmode="numeric"
+            autocomplete="tel"
+            placeholder="Enter 10-digit mobile number"
+            maxlength="14"
+            required
+            pattern="[0-9+\s()-]{10,14}"
+            title="Enter your registered mobile number">
 
-        <button type="submit">↓ &nbsp; Download Certificate</button>
-      </form>
+          <p class="example">Use the number registered for the programme</p>
 
-      <p class="secure">🔒 Secure Certificate Access</p>
-    </div>
+          <button type="submit">↓ &nbsp; Download Certificate</button>
+        </form>
 
-  </section>
+        <p class="secure">🔒 Secure Certificate Access</p>
+      </div>
 
-  <footer class="footer">
-    <strong>VIGILANCE AWARENESS PROGRAMME</strong><br>
-    Integrity • Transparency • Accountability<br>
-    <span style="font-size:11px;opacity:.8">
-      Building a more ethical and responsible society
-    </span>
-  </footer>
+    </section>
 
-</main>
+    <footer class="footer">
+      <strong>VIGILANCE AWARENESS PROGRAMME</strong><br>
+      Integrity • Transparency • Accountability<br>
+      <span style="font-size:11px;opacity:.8">
+        Building a more ethical and responsible society
+      </span>
+    </footer>
+
+  </main>
 </body>
 </html>

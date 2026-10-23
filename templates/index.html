@@ -1,510 +1,627 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#082750">
-<title>Vigilance Awareness | Certificate Portal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#082750">
+  <title>Vigilance Awareness | Certificate Portal</title>
 
-<style>
-:root {
-  --navy: #082750;
-  --blue: #104783;
-  --gold: #efc96c;
-  --ink: #102e5e;
-  --muted: #526987;
-}
-* { box-sizing: border-box; }
+  <style>
+    :root {
+      --navy: #082750;
+      --blue: #104783;
+      --gold: #efc96c;
+      --ink: #102e5e;
+      --muted: #526987;
+    }
 
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--ink);
-  background:
-    radial-gradient(ellipse at 10% 45%, #d9eafa 0, transparent 35%),
-    radial-gradient(ellipse at 90% 65%, #e3edff 0, transparent 35%),
-    linear-gradient(135deg, #f6faff, #eaf2fc);
-  min-height: 100vh;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-/* Premium header */
-.header {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(115deg, #061c3b, #123f76 65%, #082750);
-  color: white;
-  padding: 30px 20px 27px;
-  text-align: center;
-  border-bottom: 4px solid var(--gold);
-}
-.header:before {
-  content: "";
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  right: -100px;
-  top: -200px;
-  border: 1px solid #ffffff18;
-  border-radius: 50%;
-  box-shadow: 0 0 0 25px #ffffff08, 0 0 0 55px #ffffff06;
-}
-.header-inner { position: relative; z-index: 1; }
-.emblem {
-  font-size: 44px;
-  color: var(--gold);
-  line-height: 1.2;
-}
-.header h1 {
-  margin: 8px 0 4px;
-  font-family: Georgia, serif;
-  font-size: clamp(26px, 4vw, 47px);
-  letter-spacing: 2px;
-  line-height: 1.15;
-}
-.header h2 {
-  margin: 7px 0 13px;
-  color: var(--gold);
-  font-size: clamp(17px, 2.6vw, 29px);
-  letter-spacing: 1.5px;
-}
-.tagline {
-  font-size: 12px;
-  letter-spacing: 3px;
-  color: #e1eaf7;
-}
-.tricolor {
-  height: 5px;
-  background: linear-gradient(to right,
-    #f28b36 0 33.33%, #fff 33.33% 66.66%,
-    #188650 66.66% 100%);
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 10% 45%, #d9eafa 0, transparent 35%),
+        radial-gradient(ellipse at 90% 65%, #e3edff 0, transparent 35%),
+        linear-gradient(135deg, #f6faff, #eaf2fc);
+    }
 
-/* Main layout */
-.container {
-  width: min(1160px, 94%);
-  margin: 42px auto 34px;
-}
-.main-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(240px, .8fr);
-  gap: 24px;
-  align-items: stretch;
-}
-.download-card {
-  background: rgba(255,255,255,.96);
-  border: 1px solid #dce7f5;
-  border-radius: 24px;
-  padding: 38px clamp(22px, 4vw, 52px);
-  text-align: center;
-  box-shadow: 0 18px 50px #163b6818;
-  position: relative;
-}
-.shield {
-  display: grid;
-  place-items: center;
-  width: 76px;
-  height: 76px;
-  margin: -72px auto 20px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #fff6d8, #f9e4a6);
-  border: 6px solid #f5f9ff;
-  font-size: 34px;
-  box-shadow: 0 5px 18px #173e7018;
-}
-.eyebrow {
-  color: #a17a25;
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 11px;
-}
-.download-card h3 {
-  font-family: Georgia, serif;
-  font-size: clamp(27px, 3vw, 37px);
-  margin: 10px 0;
-  color: #0c3069;
-}
-.description {
-  margin: 0 auto 27px;
-  max-width: 490px;
-  color: var(--muted);
-  line-height: 1.7;
-  font-size: 15px;
-}
-label {
-  display: block;
-  text-align: left;
-  font-size: 13px;
-  font-weight: bold;
-  margin: 0 0 9px;
-  color: #29476e;
-}
-input {
-  width: 100%;
-  padding: 17px 16px;
-  border: 1px solid #ccd9eb;
-  border-radius: 12px;
-  background: #fbfdff;
-  font-size: 16px;
-  outline: none;
-  transition: .2s;
-}
-input:focus {
-  border-color: #2262a5;
-  box-shadow: 0 0 0 4px #2262a51b;
-}
-button {
-  width: 100%;
-  padding: 17px 14px;
-  margin-top: 17px;
-  border: none;
-  border-radius: 12px;
-  color: #fff;
-  background: linear-gradient(110deg, #0b326e, #14549a);
-  box-shadow: 0 8px 18px #0c326e2b;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform .2s, box-shadow .2s;
-}
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px #0c326e38;
-}
-button:focus-visible {
-  outline: 3px solid var(--gold);
-  outline-offset: 3px;
-}
-.hint {
-  color: #72839a;
-  font-size: 12px;
-  line-height: 1.7;
-  margin: 17px 0 0;
-}
-.secure {
-  margin-top: 20px;
-  font-size: 13px;
-  color: #42627f;
-}
-.error {
-  margin: 0 0 18px;
-  padding: 13px 15px;
-  border-radius: 10px;
-  text-align: left;
-  color: #8d2424;
-  background: #fff0f0;
-  border: 1px solid #f2cccc;
-  font-size: 13px;
-  line-height: 1.5;
-}
+    /* Header */
+    .header {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(115deg, #061c3b, #123f76 65%, #082750);
+      color: #fff;
+      padding: 28px 20px 25px;
+      text-align: center;
+      border-bottom: 4px solid var(--gold);
+    }
 
-/* Side quote panel */
-.quote-card {
-  position: relative;
-  overflow: hidden;
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 32px;
-  border-radius: 24px;
-  background: linear-gradient(150deg, #e1edfc, #f9fbff);
-  border: 1px solid #d7e5f7;
-}
-.quote-mark {
-  font-family: Georgia, serif;
-  font-size: 78px;
-  line-height: .8;
-  color: #8fb3df;
-}
-.quote-card h3 {
-  font-family: Georgia, serif;
-  font-style: italic;
-  font-size: 25px;
-  line-height: 1.5;
-  margin: 12px 0 22px;
-  color: #10346d;
-}
-.quote-card p {
-  margin: 0;
-  font-size: 13px;
-  color: #58708e;
-}
-.quote-decoration {
-  font-size: 80px;
-  text-align: right;
-  color: #b6cbe6;
-  margin-top: 20px;
-  line-height: 1;
-}
+    .header::before {
+      content: "";
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      right: -100px;
+      top: -200px;
+      border: 1px solid #ffffff18;
+      border-radius: 50%;
+      box-shadow: 0 0 0 25px #ffffff08, 0 0 0 55px #ffffff06;
+      pointer-events: none;
+    }
 
-/* Feature cards */
-.features {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 25px;
-}
-.feature {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  padding: 20px 15px;
-  background: #ffffffed;
-  border: 1px solid #e0e9f4;
-  border-radius: 16px;
-  box-shadow: 0 8px 22px #15395c0b;
-  min-width: 0;
-}
-.feature-icon {
-  flex: 0 0 47px;
-  width: 47px;
-  height: 47px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: #e3f5ec;
-  color: #15714b;
-  font-size: 23px;
-}
-.feature:nth-child(2) .feature-icon {
-  background: #e0edff; color: #1761b9;
-}
-.feature:nth-child(3) .feature-icon {
-  background: #fff1c7; color: #966b08;
-}
-.feature:nth-child(4) .feature-icon {
-  background: #eee7ff; color: #6844bd;
-}
-.feature h4 {
-  margin: 0 0 6px;
-  font-family: Georgia, serif;
-  font-size: 15px;
-  color: #102f62;
-}
-.feature p {
-  margin: 0;
-  color: #647891;
-  font-size: 12px;
-  line-height: 1.5;
-}
+    .header-inner {
+      position: relative;
+      z-index: 1;
+    }
 
-/* Footer */
-.footer {
-  background: #071f41;
-  color: #f3f6fb;
-  padding: 25px 20px;
-  text-align: center;
-  border-top: 3px solid #d7b35b;
-}
-.footer strong {
-  display: block;
-  color: var(--gold);
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-.footer p {
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.8;
-  color: #d1dced;
-}
-.footer .small {
-  margin-top: 12px;
-  color: #aabbd1;
-  font-size: 11px;
-}
+    .emblem {
+      font-size: 42px;
+      color: var(--gold);
+      line-height: 1.2;
+    }
 
-@media (max-width: 850px) {
-  .main-grid { grid-template-columns: 1fr; gap: 20px; }
-  .quote-card { min-height: auto; padding: 26px; }
-  .quote-card h3 { font-size: 22px; }
-  .quote-decoration { display: none; }
-  .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 520px) {
-  .header { padding: 25px 14px 23px; }
-  .header h1 { letter-spacing: 1px; }
-  .tagline { letter-spacing: 1.5px; line-height: 1.8; }
-  .container { margin: 35px auto 25px; width: 92%; }
-  .download-card { padding: 32px 21px 27px; border-radius: 19px; }
-  .shield { margin-top: -62px; width: 66px; height: 66px; }
-  .download-card h3 { font-size: 27px; }
-  .features { grid-template-columns: 1fr; gap: 11px; }
-  .feature { padding: 16px; }
-  .quote-card { border-radius: 19px; }
-}
-</style>
-  
-/* Layout adjustment for desktop and laptop */
-.container {
-  width: min(1120px, 94%);
-  margin: 52px auto 36px;
-}
+    .header h1 {
+      margin: 8px 0 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(25px, 3.6vw, 45px);
+      letter-spacing: 2px;
+      line-height: 1.2;
+      overflow-wrap: break-word;
+    }
 
-.main-grid {
-  grid-template-columns: minmax(0, 1.4fr) minmax(250px, 0.8fr);
-  gap: 22px;
-  align-items: stretch;
-}
+    .header h2 {
+      margin: 7px 0 13px;
+      color: var(--gold);
+      font-size: clamp(16px, 2.3vw, 27px);
+      letter-spacing: 1px;
+      line-height: 1.4;
+    }
 
-.download-card {
-  min-width: 0;
-  padding: 42px clamp(22px, 3vw, 40px);
-}
+    .tagline {
+      font-size: 12px;
+      letter-spacing: 2px;
+      line-height: 1.8;
+      color: #e1eaf7;
+    }
 
-.quote-card {
-  min-width: 0;
-  padding: 28px;
-}
+    .tricolor {
+      height: 5px;
+      background: linear-gradient(
+        to right,
+        #f28b36 0 33.33%,
+        #fff 33.33% 66.66%,
+        #188650 66.66% 100%
+      );
+    }
 
-.quote-card h3 {
-  font-size: clamp(20px, 2vw, 25px);
-  overflow-wrap: anywhere;
-}
+    /* Main content layout */
+    .container {
+      width: min(1120px, 94%);
+      margin: 48px auto 34px;
+    }
 
-.features {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-}
+    .main-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(250px, 0.8fr);
+      gap: 22px;
+      align-items: stretch;
+    }
 
-.feature {
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
+    /* Certificate download card */
+    .download-card {
+      min-width: 0;
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid #dce7f5;
+      border-radius: 22px;
+      padding: 42px clamp(22px, 3vw, 40px);
+      text-align: center;
+      box-shadow: 0 18px 50px #163b6818;
+      position: relative;
+    }
 
-/* Small laptop screens */
-@media (min-width: 651px) and (max-width: 1000px) {
-  .main-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.7fr);
-  }
+    .shield {
+      display: grid;
+      place-items: center;
+      width: 72px;
+      height: 72px;
+      margin: -76px auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #fff6d8, #f9e4a6);
+      border: 6px solid #f5f9ff;
+      font-size: 32px;
+      box-shadow: 0 5px 18px #173e7018;
+    }
 
-  .features {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
+    .eyebrow {
+      color: #a17a25;
+      font-weight: bold;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+      font-size: 11px;
+      line-height: 1.7;
+    }
 
-/* Mobile and narrow screens */
-@media (max-width: 650px) {
-  .container {
-    width: 92%;
-    margin: 38px auto 24px;
-  }
+    .download-card h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(25px, 2.6vw, 34px);
+      line-height: 1.25;
+      margin: 10px 0;
+      color: #0c3069;
+    }
 
-  .main-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
+    .description {
+      margin: 0 auto 25px;
+      max-width: 490px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
 
-  .download-card {
-    padding: 34px 20px 26px;
-  }
+    label {
+      display: block;
+      text-align: left;
+      font-size: 13px;
+      font-weight: bold;
+      margin: 0 0 9px;
+      color: #29476e;
+    }
 
-  .quote-card {
-    padding: 24px;
-  }
+    input {
+      display: block;
+      width: 100%;
+      min-width: 0;
+      padding: 16px;
+      border: 1px solid #ccd9eb;
+      border-radius: 12px;
+      background: #fbfdff;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
 
-  .features {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
+    input:focus {
+      border-color: #2262a5;
+      box-shadow: 0 0 0 4px #2262a51b;
+    }
 
+    button {
+      display: block;
+      width: 100%;
+      padding: 16px 12px;
+      margin-top: 16px;
+      border: none;
+      border-radius: 12px;
+      color: #fff;
+      background: linear-gradient(110deg, #0b326e, #14549a);
+      box-shadow: 0 8px 18px #0c326e2b;
+      font-size: 15px;
+      font-weight: bold;
+      line-height: 1.5;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px #0c326e38;
+    }
+
+    button:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    .secure {
+      margin: 19px 0 0;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #42627f;
+    }
+
+    .hint {
+      color: #72839a;
+      font-size: 12px;
+      line-height: 1.7;
+      margin: 13px 0 0;
+    }
+
+    .error {
+      margin: 0 0 18px;
+      padding: 13px 15px;
+      border-radius: 10px;
+      text-align: left;
+      color: #8d2424;
+      background: #fff0f0;
+      border: 1px solid #f2cccc;
+      font-size: 13px;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
+
+    /* Quote panel */
+    .quote-card {
+      min-width: 0;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 28px;
+      border-radius: 22px;
+      background: linear-gradient(150deg, #e1edfc, #f9fbff);
+      border: 1px solid #d7e5f7;
+    }
+
+    .quote-mark {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 72px;
+      line-height: 0.8;
+      color: #8fb3df;
+    }
+
+    .quote-card h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-size: clamp(20px, 2vw, 25px);
+      line-height: 1.5;
+      margin: 15px 0 22px;
+      color: #10346d;
+      overflow-wrap: anywhere;
+    }
+
+    .quote-card p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #58708e;
+    }
+
+    .quote-decoration {
+      font-size: 64px;
+      text-align: right;
+      color: #b6cbe6;
+      margin-top: 18px;
+      line-height: 1;
+    }
+
+    /* Feature cards */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      padding: 18px 14px;
+      background: #ffffffed;
+      border: 1px solid #e0e9f4;
+      border-radius: 16px;
+      box-shadow: 0 8px 22px #15395c0b;
+    }
+
+    .feature-icon {
+      flex: 0 0 44px;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #e3f5ec;
+      color: #15714b;
+      font-size: 22px;
+    }
+
+    .feature:nth-child(2) .feature-icon {
+      background: #e0edff;
+      color: #1761b9;
+    }
+
+    .feature:nth-child(3) .feature-icon {
+      background: #fff1c7;
+      color: #966b08;
+    }
+
+    .feature:nth-child(4) .feature-icon {
+      background: #eee7ff;
+      color: #6844bd;
+    }
+
+    .feature h4 {
+      margin: 0 0 6px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      line-height: 1.4;
+      color: #102f62;
+    }
+
+    .feature p {
+      margin: 0;
+      color: #647891;
+      font-size: 12px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    /* Footer */
+    .footer {
+      background: #071f41;
+      color: #f3f6fb;
+      padding: 25px 20px;
+      text-align: center;
+      border-top: 3px solid #d7b35b;
+    }
+
+    .footer strong {
+      display: block;
+      color: var(--gold);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .footer p {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.8;
+      color: #d1dced;
+    }
+
+    .footer .small {
+      margin-top: 12px;
+      color: #aabbd1;
+      font-size: 11px;
+    }
+
+    /* Small laptop / tablet */
+    @media (min-width: 651px) and (max-width: 1000px) {
+      .container {
+        width: 94%;
+        margin-top: 42px;
+      }
+
+      .main-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 0.7fr);
+        gap: 16px;
+      }
+
+      .download-card {
+        padding: 40px 22px 28px;
+      }
+
+      .quote-card {
+        padding: 22px;
+      }
+
+      .features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 650px) {
+      .header {
+        padding: 24px 14px 21px;
+      }
+
+      .emblem {
+        font-size: 34px;
+      }
+
+      .header h1 {
+        letter-spacing: 1px;
+      }
+
+      .header h2 {
+        letter-spacing: 0.5px;
+      }
+
+      .tagline {
+        font-size: 10px;
+        letter-spacing: 1px;
+      }
+
+      .container {
+        width: 92%;
+        margin: 38px auto 24px;
+      }
+
+      .main-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+      }
+
+      .download-card {
+        padding: 34px 20px 26px;
+        border-radius: 19px;
+      }
+
+      .shield {
+        width: 64px;
+        height: 64px;
+        margin-top: -65px;
+        font-size: 28px;
+      }
+
+      .download-card h3 {
+        font-size: 27px;
+      }
+
+      .description {
+        font-size: 14px;
+      }
+
+      input {
+        padding: 15px 12px;
+      }
+
+      button {
+        font-size: 14px;
+      }
+
+      .quote-card {
+        padding: 24px;
+        border-radius: 19px;
+        min-height: auto;
+      }
+
+      .quote-card h3 {
+        font-size: 22px;
+      }
+
+      .quote-decoration {
+        display: none;
+      }
+
+      .features {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 11px;
+      }
+
+      .feature {
+        padding: 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<header class="header">
-  <div class="header-inner">
-    <div class="emblem" aria-hidden="true">⚖</div>
-    <h1>VIGILANCE AWARENESS</h1>
-    <h2>CERTIFICATE DOWNLOAD PORTAL</h2>
-    <div class="tagline">INTEGRITY &nbsp; | &nbsp; TRANSPARENCY &nbsp; | &nbsp; ACCOUNTABILITY</div>
-  </div>
-</header>
-<div class="tricolor"></div>
-
-<main class="container">
-  <section class="main-grid">
-    <div class="download-card">
-      <div class="shield" aria-hidden="true">🛡️</div>
-      <div class="eyebrow">Participant Access Portal</div>
-      <h3>Download Your Certificate</h3>
-      <p class="description">
-        Thank you for participating in the Vigilance Awareness Programme.
-        Enter your registered mobile number to access your certificate.
-      </p>
-
-      {% if error %}
-        <div class="error" role="alert">{{ error }}</div>
-      {% endif %}
-
-      <form method="post" action="/">
-        <label for="mobile">Registered Mobile Number</label>
-        <input
-          id="mobile"
-          name="mobile"
-          type="tel"
-          inputmode="numeric"
-          autocomplete="tel"
-          placeholder="Enter 10-digit mobile number"
-          maxlength="14"
-          required
-          pattern="[0-9+\s()-]{10,14}"
-          title="Please enter your registered mobile number">
-        <button type="submit">↓ &nbsp; Find &amp; Download Certificate &nbsp; →</button>
-      </form>
-
-      <p class="secure">🔒 &nbsp; Secure Certificate Access</p>
-      <p class="hint">
-        If your certificate is not found, please verify your mobile number
-        or contact the event organiser.
-      </p>
-    </div>
-
-    <aside class="quote-card">
-      <div class="quote-mark">“</div>
-      <h3>Integrity begins with each one of us. Together, let us build a corruption-free nation.</h3>
-      <p>— Vigilance Awareness Programme</p>
-      <div class="quote-decoration" aria-hidden="true">✦</div>
-    </aside>
-  </section>
-
-  <section class="features" aria-label="Portal features">
-    <div class="feature">
-      <div class="feature-icon">✓</div>
-      <div>
-        <h4>Secure Access</h4>
-        <p>Access your certificate using your registered number.</p>
+  <header class="header">
+    <div class="header-inner">
+      <div class="emblem" aria-hidden="true">⚖</div>
+      <h1>VIGILANCE AWARENESS</h1>
+      <h2>CERTIFICATE DOWNLOAD PORTAL</h2>
+      <div class="tagline">
+        INTEGRITY &nbsp; | &nbsp; TRANSPARENCY &nbsp; | &nbsp; ACCOUNTABILITY
       </div>
     </div>
-    <div class="feature">
-      <div class="feature-icon">⚡</div>
-      <div>
-        <h4>Quick Download</h4>
-        <p>Get your JPG certificate in a few simple steps.</p>
-      </div>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">▣</div>
-      <div>
-        <h4>Easy to Use</h4>
-        <p>Simple access on mobile phones and computers.</p>
-      </div>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">▤</div>
-      <div>
-        <h4>Certificate Portal</h4>
-        <p>Convenient access to your participation certificate.</p>
-      </div>
-    </div>
-  </section>
-</main>
+  </header>
 
-<footer class="footer">
-  <strong>VIGILANCE AWARENESS PROGRAMME</strong>
-  <p>Integrity • Transparency • Accountability</p>
-  <p>Building a more responsible and ethical society</p>
-  <p class="small">Certificate Download Services</p>
-</footer>
+  <div class="tricolor" aria-hidden="true"></div>
+
+  <main class="container">
+    <section class="main-grid">
+
+      <div class="download-card">
+        <div class="shield" aria-hidden="true">🛡️</div>
+
+        <div class="eyebrow">Participant Access Portal</div>
+
+        <h3>Download Your Certificate</h3>
+
+        <p class="description">
+          Thank you for participating in the Vigilance Awareness Programme.
+          Enter your registered mobile number to access your certificate.
+        </p>
+
+        {% if error %}
+          <div class="error" role="alert">{{ error }}</div>
+        {% endif %}
+
+        <form method="post" action="/">
+          <label for="mobile">Registered Mobile Number</label>
+
+          <input
+            id="mobile"
+            name="mobile"
+            type="tel"
+            inputmode="numeric"
+            autocomplete="tel"
+            placeholder="Enter 10-digit mobile number"
+            maxlength="14"
+            required
+            pattern="[0-9+\s()-]{10,14}"
+            title="Please enter your registered mobile number">
+
+          <button type="submit">
+            ↓ &nbsp; Find &amp; Download Certificate &nbsp; →
+          </button>
+        </form>
+
+        <p class="secure">🔒 &nbsp; Secure Certificate Access</p>
+
+        <p class="hint">
+          If your certificate is not found, please verify your mobile number
+          or contact the event organiser.
+        </p>
+      </div>
+
+      <aside class="quote-card">
+        <div class="quote-mark" aria-hidden="true">“</div>
+
+        <h3>
+          Integrity begins with each one of us. Together, let us build a
+          corruption-free nation.
+        </h3>
+
+        <p>— Vigilance Awareness Programme</p>
+
+        <div class="quote-decoration" aria-hidden="true">✦</div>
+      </aside>
+
+    </section>
+
+    <section class="features" aria-label="Portal features">
+
+      <div class="feature">
+        <div class="feature-icon" aria-hidden="true">✓</div>
+        <div>
+          <h4>Secure Access</h4>
+          <p>Access your certificate using your registered number.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon" aria-hidden="true">⚡</div>
+        <div>
+          <h4>Quick Download</h4>
+          <p>Get your JPG certificate in a few simple steps.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon" aria-hidden="true">▣</div>
+        <div>
+          <h4>Easy to Use</h4>
+          <p>Simple access on mobile phones and computers.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon" aria-hidden="true">▤</div>
+        <div>
+          <h4>Certificate Portal</h4>
+          <p>Convenient access to your participation certificate.</p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <strong>VIGILANCE AWARENESS PROGRAMME</strong>
+    <p>Integrity • Transparency • Accountability</p>
+    <p>Building a more responsible and ethical society</p>
+    <p class="small">Certificate Download Services</p>
+  </footer>
 </body>
 </html>

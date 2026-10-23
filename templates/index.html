@@ -336,6 +336,79 @@ button:focus-visible {
   .quote-card { border-radius: 19px; }
 }
 </style>
+  
+/* Layout adjustment for desktop and laptop */
+.container {
+  width: min(1120px, 94%);
+  margin: 52px auto 36px;
+}
+
+.main-grid {
+  grid-template-columns: minmax(0, 1.4fr) minmax(250px, 0.8fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.download-card {
+  min-width: 0;
+  padding: 42px clamp(22px, 3vw, 40px);
+}
+
+.quote-card {
+  min-width: 0;
+  padding: 28px;
+}
+
+.quote-card h3 {
+  font-size: clamp(20px, 2vw, 25px);
+  overflow-wrap: anywhere;
+}
+
+.features {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.feature {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Small laptop screens */
+@media (min-width: 651px) and (max-width: 1000px) {
+  .main-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.7fr);
+  }
+
+  .features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile and narrow screens */
+@media (max-width: 650px) {
+  .container {
+    width: 92%;
+    margin: 38px auto 24px;
+  }
+
+  .main-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .download-card {
+    padding: 34px 20px 26px;
+  }
+
+  .quote-card {
+    padding: 24px;
+  }
+
+  .features {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 </head>
 
 <body>

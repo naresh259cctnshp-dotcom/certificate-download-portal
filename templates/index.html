@@ -1,1 +1,96 @@
-
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102b25">
+  <title>Vigilance Awareness Certificate Download</title>
+  <style>
+    :root { color-scheme: light; --green:#123c31; --gold:#d6b56d; --ink:#172a25; }
+    * { box-sizing:border-box; }
+    body {
+      margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+      padding:24px; font-family:Arial, Helvetica, sans-serif; color:var(--ink);
+      background: radial-gradient(circle at 15% 10%, #e9f3e8 0, transparent 34%),
+                  linear-gradient(135deg, #f6f8f4, #e8eee8);
+    }
+    .shell { width:100%; max-width:850px; }
+    .topline { text-align:center; color:#48645a; font-size:12px; letter-spacing:2px; text-transform:uppercase; margin-bottom:18px; }
+    .card {
+      overflow:hidden; display:grid; grid-template-columns: .9fr 1.1fr; border-radius:24px;
+      background:#fff; box-shadow:0 24px 70px rgba(17,49,39,.15); border:1px solid #dce6dd;
+    }
+    .hero {
+      padding:42px 34px; color:#fff; background:
+        radial-gradient(circle at 85% 12%, rgba(214,181,109,.22), transparent 27%),
+        linear-gradient(145deg, #173f33, #0d2822);
+      display:flex; flex-direction:column; justify-content:center; position:relative;
+    }
+    .seal {
+      width:76px; height:76px; border:1px solid rgba(230,207,151,.8); color:#f0d99c;
+      border-radius:50%; display:grid; place-items:center; font-size:30px; margin-bottom:28px;
+      box-shadow:0 0 0 7px rgba(214,181,109,.08);
+    }
+    .hero h1 { font-size:clamp(28px,4vw,38px); line-height:1.12; margin:0 0 16px; letter-spacing:-.7px; }
+    .hero p { margin:0; color:#d6e3da; line-height:1.7; font-size:14px; }
+    .hero .rule { width:58px; height:3px; background:var(--gold); margin:24px 0; }
+    .formside { padding:48px 40px; display:flex; flex-direction:column; justify-content:center; }
+    .eyebrow { color:#8b6c2c; font-size:11px; font-weight:bold; text-transform:uppercase; letter-spacing:1.7px; margin-bottom:10px; }
+    h2 { margin:0 0 10px; font-size:26px; color:#17372d; }
+    .intro { color:#68776f; line-height:1.6; font-size:14px; margin:0 0 28px; }
+    label { display:block; font-size:13px; font-weight:bold; margin-bottom:9px; color:#304b40; }
+    input {
+      width:100%; border:1px solid #cbd8cf; border-radius:11px; padding:15px 14px; font-size:16px;
+      outline:none; transition:border .2s, box-shadow .2s; background:#fbfdfb;
+    }
+    input:focus { border-color:#36735b; box-shadow:0 0 0 3px rgba(54,115,91,.12); }
+    button {
+      margin-top:15px; width:100%; border:0; border-radius:11px; padding:15px 18px;
+      background:#173f33; color:#fff; font-weight:bold; font-size:15px; cursor:pointer;
+      transition:transform .15s, background .15s;
+    }
+    button:hover { background:#225744; transform:translateY(-1px); }
+    .hint { font-size:12px; line-height:1.6; color:#7b8980; margin-top:13px; }
+    .error { margin:0 0 16px; padding:12px 14px; border-radius:10px; color:#8b2929; background:#fff0ef; border:1px solid #f3d1cf; font-size:13px; line-height:1.5; }
+    .footer { text-align:center; font-size:11px; color:#748379; margin-top:18px; }
+    @media (max-width:650px) {
+      body { padding:14px; }
+      .card { grid-template-columns:1fr; border-radius:18px; }
+      .hero { padding:28px 26px; }
+      .seal { width:58px; height:58px; font-size:24px; margin-bottom:20px; }
+      .hero h1 { font-size:29px; }
+      .hero .rule { margin:16px 0; }
+      .formside { padding:30px 25px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="topline">Certificate Download Portal</div>
+    <section class="card">
+      <div class="hero">
+        <div class="seal" aria-hidden="true">✓</div>
+        <h1>Vigilance<br>Awareness</h1>
+        <div class="rule"></div>
+        <p>Thank you for participating. Enter your registered mobile number to access your certificate.</p>
+      </div>
+      <div class="formside">
+        <div class="eyebrow">Participant access</div>
+        <h2>Download Certificate</h2>
+        <p class="intro">Use the mobile number associated with your participation record.</p>
+        {% if error %}
+          <div class="error" role="alert">{{ error }}</div>
+        {% endif %}
+        <form method="post" action="/">
+          <label for="mobile">Registered mobile number</label>
+          <input id="mobile" name="mobile" type="tel" inputmode="numeric" autocomplete="tel"
+                 placeholder="Enter 10-digit mobile number" maxlength="14" required>
+          <button type="submit">Find &amp; Download PDF</button>
+        </form>
+        <p class="hint">If your certificate is not found, verify your number or contact the event organiser.</p>
+      </div>
+    </section>
+    <div class="footer">Vigilance Awareness · Certificate Services</div>
+  </main>
+</body>
+</html>

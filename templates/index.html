@@ -1,96 +1,437 @@
+
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#102b25">
-  <title>Vigilance Awareness Certificate Download</title>
-  <style>
-    :root { color-scheme: light; --green:#123c31; --gold:#d6b56d; --ink:#172a25; }
-    * { box-sizing:border-box; }
-    body {
-      margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
-      padding:24px; font-family:Arial, Helvetica, sans-serif; color:var(--ink);
-      background: radial-gradient(circle at 15% 10%, #e9f3e8 0, transparent 34%),
-                  linear-gradient(135deg, #f6f8f4, #e8eee8);
-    }
-    .shell { width:100%; max-width:850px; }
-    .topline { text-align:center; color:#48645a; font-size:12px; letter-spacing:2px; text-transform:uppercase; margin-bottom:18px; }
-    .card {
-      overflow:hidden; display:grid; grid-template-columns: .9fr 1.1fr; border-radius:24px;
-      background:#fff; box-shadow:0 24px 70px rgba(17,49,39,.15); border:1px solid #dce6dd;
-    }
-    .hero {
-      padding:42px 34px; color:#fff; background:
-        radial-gradient(circle at 85% 12%, rgba(214,181,109,.22), transparent 27%),
-        linear-gradient(145deg, #173f33, #0d2822);
-      display:flex; flex-direction:column; justify-content:center; position:relative;
-    }
-    .seal {
-      width:76px; height:76px; border:1px solid rgba(230,207,151,.8); color:#f0d99c;
-      border-radius:50%; display:grid; place-items:center; font-size:30px; margin-bottom:28px;
-      box-shadow:0 0 0 7px rgba(214,181,109,.08);
-    }
-    .hero h1 { font-size:clamp(28px,4vw,38px); line-height:1.12; margin:0 0 16px; letter-spacing:-.7px; }
-    .hero p { margin:0; color:#d6e3da; line-height:1.7; font-size:14px; }
-    .hero .rule { width:58px; height:3px; background:var(--gold); margin:24px 0; }
-    .formside { padding:48px 40px; display:flex; flex-direction:column; justify-content:center; }
-    .eyebrow { color:#8b6c2c; font-size:11px; font-weight:bold; text-transform:uppercase; letter-spacing:1.7px; margin-bottom:10px; }
-    h2 { margin:0 0 10px; font-size:26px; color:#17372d; }
-    .intro { color:#68776f; line-height:1.6; font-size:14px; margin:0 0 28px; }
-    label { display:block; font-size:13px; font-weight:bold; margin-bottom:9px; color:#304b40; }
-    input {
-      width:100%; border:1px solid #cbd8cf; border-radius:11px; padding:15px 14px; font-size:16px;
-      outline:none; transition:border .2s, box-shadow .2s; background:#fbfdfb;
-    }
-    input:focus { border-color:#36735b; box-shadow:0 0 0 3px rgba(54,115,91,.12); }
-    button {
-      margin-top:15px; width:100%; border:0; border-radius:11px; padding:15px 18px;
-      background:#173f33; color:#fff; font-weight:bold; font-size:15px; cursor:pointer;
-      transition:transform .15s, background .15s;
-    }
-    button:hover { background:#225744; transform:translateY(-1px); }
-    .hint { font-size:12px; line-height:1.6; color:#7b8980; margin-top:13px; }
-    .error { margin:0 0 16px; padding:12px 14px; border-radius:10px; color:#8b2929; background:#fff0ef; border:1px solid #f3d1cf; font-size:13px; line-height:1.5; }
-    .footer { text-align:center; font-size:11px; color:#748379; margin-top:18px; }
-    @media (max-width:650px) {
-      body { padding:14px; }
-      .card { grid-template-columns:1fr; border-radius:18px; }
-      .hero { padding:28px 26px; }
-      .seal { width:58px; height:58px; font-size:24px; margin-bottom:20px; }
-      .hero h1 { font-size:29px; }
-      .hero .rule { margin:16px 0; }
-      .formside { padding:30px 25px; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#082750">
+<title>Vigilance Awareness | Certificate Portal</title>
+
+<style>
+:root {
+  --navy: #082750;
+  --blue: #104783;
+  --gold: #efc96c;
+  --ink: #102e5e;
+  --muted: #526987;
+}
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 10% 45%, #d9eafa 0, transparent 35%),
+    radial-gradient(ellipse at 90% 65%, #e3edff 0, transparent 35%),
+    linear-gradient(135deg, #f6faff, #eaf2fc);
+  min-height: 100vh;
+}
+
+/* Premium header */
+.header {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(115deg, #061c3b, #123f76 65%, #082750);
+  color: white;
+  padding: 30px 20px 27px;
+  text-align: center;
+  border-bottom: 4px solid var(--gold);
+}
+.header:before {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  right: -100px;
+  top: -200px;
+  border: 1px solid #ffffff18;
+  border-radius: 50%;
+  box-shadow: 0 0 0 25px #ffffff08, 0 0 0 55px #ffffff06;
+}
+.header-inner { position: relative; z-index: 1; }
+.emblem {
+  font-size: 44px;
+  color: var(--gold);
+  line-height: 1.2;
+}
+.header h1 {
+  margin: 8px 0 4px;
+  font-family: Georgia, serif;
+  font-size: clamp(26px, 4vw, 47px);
+  letter-spacing: 2px;
+  line-height: 1.15;
+}
+.header h2 {
+  margin: 7px 0 13px;
+  color: var(--gold);
+  font-size: clamp(17px, 2.6vw, 29px);
+  letter-spacing: 1.5px;
+}
+.tagline {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #e1eaf7;
+}
+.tricolor {
+  height: 5px;
+  background: linear-gradient(to right,
+    #f28b36 0 33.33%, #fff 33.33% 66.66%,
+    #188650 66.66% 100%);
+}
+
+/* Main layout */
+.container {
+  width: min(1160px, 94%);
+  margin: 42px auto 34px;
+}
+.main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(240px, .8fr);
+  gap: 24px;
+  align-items: stretch;
+}
+.download-card {
+  background: rgba(255,255,255,.96);
+  border: 1px solid #dce7f5;
+  border-radius: 24px;
+  padding: 38px clamp(22px, 4vw, 52px);
+  text-align: center;
+  box-shadow: 0 18px 50px #163b6818;
+  position: relative;
+}
+.shield {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  margin: -72px auto 20px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #fff6d8, #f9e4a6);
+  border: 6px solid #f5f9ff;
+  font-size: 34px;
+  box-shadow: 0 5px 18px #173e7018;
+}
+.eyebrow {
+  color: #a17a25;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+.download-card h3 {
+  font-family: Georgia, serif;
+  font-size: clamp(27px, 3vw, 37px);
+  margin: 10px 0;
+  color: #0c3069;
+}
+.description {
+  margin: 0 auto 27px;
+  max-width: 490px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 15px;
+}
+label {
+  display: block;
+  text-align: left;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 0 0 9px;
+  color: #29476e;
+}
+input {
+  width: 100%;
+  padding: 17px 16px;
+  border: 1px solid #ccd9eb;
+  border-radius: 12px;
+  background: #fbfdff;
+  font-size: 16px;
+  outline: none;
+  transition: .2s;
+}
+input:focus {
+  border-color: #2262a5;
+  box-shadow: 0 0 0 4px #2262a51b;
+}
+button {
+  width: 100%;
+  padding: 17px 14px;
+  margin-top: 17px;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  background: linear-gradient(110deg, #0b326e, #14549a);
+  box-shadow: 0 8px 18px #0c326e2b;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px #0c326e38;
+}
+button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+.hint {
+  color: #72839a;
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 17px 0 0;
+}
+.secure {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #42627f;
+}
+.error {
+  margin: 0 0 18px;
+  padding: 13px 15px;
+  border-radius: 10px;
+  text-align: left;
+  color: #8d2424;
+  background: #fff0f0;
+  border: 1px solid #f2cccc;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Side quote panel */
+.quote-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px;
+  border-radius: 24px;
+  background: linear-gradient(150deg, #e1edfc, #f9fbff);
+  border: 1px solid #d7e5f7;
+}
+.quote-mark {
+  font-family: Georgia, serif;
+  font-size: 78px;
+  line-height: .8;
+  color: #8fb3df;
+}
+.quote-card h3 {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 25px;
+  line-height: 1.5;
+  margin: 12px 0 22px;
+  color: #10346d;
+}
+.quote-card p {
+  margin: 0;
+  font-size: 13px;
+  color: #58708e;
+}
+.quote-decoration {
+  font-size: 80px;
+  text-align: right;
+  color: #b6cbe6;
+  margin-top: 20px;
+  line-height: 1;
+}
+
+/* Feature cards */
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 25px;
+}
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 20px 15px;
+  background: #ffffffed;
+  border: 1px solid #e0e9f4;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px #15395c0b;
+  min-width: 0;
+}
+.feature-icon {
+  flex: 0 0 47px;
+  width: 47px;
+  height: 47px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #e3f5ec;
+  color: #15714b;
+  font-size: 23px;
+}
+.feature:nth-child(2) .feature-icon {
+  background: #e0edff; color: #1761b9;
+}
+.feature:nth-child(3) .feature-icon {
+  background: #fff1c7; color: #966b08;
+}
+.feature:nth-child(4) .feature-icon {
+  background: #eee7ff; color: #6844bd;
+}
+.feature h4 {
+  margin: 0 0 6px;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  color: #102f62;
+}
+.feature p {
+  margin: 0;
+  color: #647891;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+  background: #071f41;
+  color: #f3f6fb;
+  padding: 25px 20px;
+  text-align: center;
+  border-top: 3px solid #d7b35b;
+}
+.footer strong {
+  display: block;
+  color: var(--gold);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.footer p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #d1dced;
+}
+.footer .small {
+  margin-top: 12px;
+  color: #aabbd1;
+  font-size: 11px;
+}
+
+@media (max-width: 850px) {
+  .main-grid { grid-template-columns: 1fr; gap: 20px; }
+  .quote-card { min-height: auto; padding: 26px; }
+  .quote-card h3 { font-size: 22px; }
+  .quote-decoration { display: none; }
+  .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .header { padding: 25px 14px 23px; }
+  .header h1 { letter-spacing: 1px; }
+  .tagline { letter-spacing: 1.5px; line-height: 1.8; }
+  .container { margin: 35px auto 25px; width: 92%; }
+  .download-card { padding: 32px 21px 27px; border-radius: 19px; }
+  .shield { margin-top: -62px; width: 66px; height: 66px; }
+  .download-card h3 { font-size: 27px; }
+  .features { grid-template-columns: 1fr; gap: 11px; }
+  .feature { padding: 16px; }
+  .quote-card { border-radius: 19px; }
+}
+</style>
 </head>
+
 <body>
-  <main class="shell">
-    <div class="topline">Certificate Download Portal</div>
-    <section class="card">
-      <div class="hero">
-        <div class="seal" aria-hidden="true">✓</div>
-        <h1>Vigilance<br>Awareness</h1>
-        <div class="rule"></div>
-        <p>Thank you for participating. Enter your registered mobile number to access your certificate.</p>
+<header class="header">
+  <div class="header-inner">
+    <div class="emblem" aria-hidden="true">⚖</div>
+    <h1>VIGILANCE AWARENESS</h1>
+    <h2>CERTIFICATE DOWNLOAD PORTAL</h2>
+    <div class="tagline">INTEGRITY &nbsp; | &nbsp; TRANSPARENCY &nbsp; | &nbsp; ACCOUNTABILITY</div>
+  </div>
+</header>
+<div class="tricolor"></div>
+
+<main class="container">
+  <section class="main-grid">
+    <div class="download-card">
+      <div class="shield" aria-hidden="true">🛡️</div>
+      <div class="eyebrow">Participant Access Portal</div>
+      <h3>Download Your Certificate</h3>
+      <p class="description">
+        Thank you for participating in the Vigilance Awareness Programme.
+        Enter your registered mobile number to access your certificate.
+      </p>
+
+      {% if error %}
+        <div class="error" role="alert">{{ error }}</div>
+      {% endif %}
+
+      <form method="post" action="/">
+        <label for="mobile">Registered Mobile Number</label>
+        <input
+          id="mobile"
+          name="mobile"
+          type="tel"
+          inputmode="numeric"
+          autocomplete="tel"
+          placeholder="Enter 10-digit mobile number"
+          maxlength="14"
+          required
+          pattern="[0-9+\s()-]{10,14}"
+          title="Please enter your registered mobile number">
+        <button type="submit">↓ &nbsp; Find &amp; Download Certificate &nbsp; →</button>
+      </form>
+
+      <p class="secure">🔒 &nbsp; Secure Certificate Access</p>
+      <p class="hint">
+        If your certificate is not found, please verify your mobile number
+        or contact the event organiser.
+      </p>
+    </div>
+
+    <aside class="quote-card">
+      <div class="quote-mark">“</div>
+      <h3>Integrity begins with each one of us. Together, let us build a corruption-free nation.</h3>
+      <p>— Vigilance Awareness Programme</p>
+      <div class="quote-decoration" aria-hidden="true">✦</div>
+    </aside>
+  </section>
+
+  <section class="features" aria-label="Portal features">
+    <div class="feature">
+      <div class="feature-icon">✓</div>
+      <div>
+        <h4>Secure Access</h4>
+        <p>Access your certificate using your registered number.</p>
       </div>
-      <div class="formside">
-        <div class="eyebrow">Participant access</div>
-        <h2>Download Certificate</h2>
-        <p class="intro">Use the mobile number associated with your participation record.</p>
-        {% if error %}
-          <div class="error" role="alert">{{ error }}</div>
-        {% endif %}
-        <form method="post" action="/">
-          <label for="mobile">Registered mobile number</label>
-          <input id="mobile" name="mobile" type="tel" inputmode="numeric" autocomplete="tel"
-                 placeholder="Enter 10-digit mobile number" maxlength="14" required>
-          <button type="submit">Find &amp; Download JPG</button>
-        </form>
-        <p class="hint">If your certificate is not found, verify your number or contact the event organiser.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">⚡</div>
+      <div>
+        <h4>Quick Download</h4>
+        <p>Get your JPG certificate in a few simple steps.</p>
       </div>
-    </section>
-    <div class="footer">Vigilance Awareness · Certificate Services</div>
-  </main>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">▣</div>
+      <div>
+        <h4>Easy to Use</h4>
+        <p>Simple access on mobile phones and computers.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">▤</div>
+      <div>
+        <h4>Certificate Portal</h4>
+        <p>Convenient access to your participation certificate.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <strong>VIGILANCE AWARENESS PROGRAMME</strong>
+  <p>Integrity • Transparency • Accountability</p>
+  <p>Building a more responsible and ethical society</p>
+  <p class="small">Certificate Download Services</p>
+</footer>
 </body>
 </html>
